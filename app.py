@@ -1,7 +1,7 @@
 from flask import Flask, flash, render_template, request, redirect, session, url_for
 from api_constants import *
 import genomelink
-
+import os
 
 def create_app():
     app = Flask(__name__)
@@ -40,11 +40,10 @@ def create_app():
 
 if __name__ == '__main__':
     # This allows us to use a plain HTTP callback.
-    import os
     os.environ['DEBUG'] = '1'
     os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
     # Run local server on port 5000.
     app = create_app()
-    app.secret_key = os.urandom(24)
+    #app.secret_key = os.urandom(24)
     app.run(debug=True)

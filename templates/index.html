@@ -6,7 +6,7 @@
   <body>
     <div class="container">
       <div class="page-header">
-        <p class="lead">GENOME LINK example</p>
+        <p class="lead">Press the button to get started</p>
       </div>
 
       {% with messages = get_flashed_messages() %}
@@ -21,7 +21,7 @@
       {% endwith %}
 
       {% if not reports %}
-      <a href="{{ authorize_url }}" class="btn btn-default">Connect with genome</a>
+      <a href="{{ authorize_url }}" class="btn btn-default">Connect with genome by clicking the button</a>
       {% else %}
       <table class="table">
         <caption>Genome</caption>
