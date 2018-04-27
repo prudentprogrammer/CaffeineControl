@@ -2,6 +2,8 @@
 <html>
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Custom css stylesheet -->
+    <link rel="stylesheet" href="../static/custom.css">
   </head>
   <body>
     <div class="container">
@@ -21,7 +23,7 @@
       {% endwith %}
 
       {% if not reports %}
-      <a href="{{ authorize_url }}" class="btn btn-default">Connect with genome by clicking the button</a>
+        <a href="{{ authorize_url }}" class="btn btn-default">Connect with genome by clicking the button</a>
       {% else %}
       <table class="table">
         <caption>Genome</caption>
@@ -36,6 +38,7 @@
           <tr>
             <th scope="row">{{ report.phenotype.display_name }}</th>
             <td>{{ report.summary.text }}</td>
+            <td>{{ report.scores }}</td>
           </tr>
           {% endfor %}
         </tbody>
@@ -43,5 +46,9 @@
       {% endif %}
 
     </div>
+    <div id="wrapper">
+    </div>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="../static/drawCharts.js"></script>
   </body>
 </html>

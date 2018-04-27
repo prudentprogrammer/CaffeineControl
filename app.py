@@ -14,7 +14,9 @@ def create_app():
     'report:vitamin-a',
     'report:milk-allergy',
     'report:egg-allergy',
-    'report:alcohol-drinking-behavior'
+    'report:alcohol-drinking-behavior',
+    'report:caffeine-consumption',
+    'report:caffeine-metabolite-ratio'
   ]
 
   @app.route('/')
