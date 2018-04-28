@@ -10,7 +10,6 @@
       <div class="page-header">
         <p class="lead">Press the button to get started</p>
       </div>
-
       {% with messages = get_flashed_messages() %}
         {% if messages %}
           {% for message in messages %}
@@ -38,15 +37,15 @@
           <tr>
             <th scope="row">{{ report.phenotype.display_name }}</th>
             <td>{{ report.summary.text }}</td>
-            <td>{{ report.scores }}</td>
+            <td>{{ report.summary.score }}</td>
           </tr>
           {% endfor %}
         </tbody>
       </table>
+      <div id="wrapper">
+      </div>
       {% endif %}
 
-    </div>
-    <div id="wrapper">
     </div>
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src="../static/drawCharts.js"></script>
