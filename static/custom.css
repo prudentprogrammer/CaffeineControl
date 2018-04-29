@@ -5,3 +5,8 @@
 #xaxis text, #yaxis text {
   font-size: 12px;
 }
+
+.brand-logo {
+  margin-left: 10px;
+  padding-left: 10px;
+}
