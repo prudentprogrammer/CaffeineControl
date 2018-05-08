@@ -8,9 +8,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../static/custom.css">
   </head>
-  <body>
+  <body class="blue lighten-4">
     <nav>
-      <div class="nav-wrapper light-blue">
+      <div class="nav-wrapper light-blue darken-4">
         <a href="#" class="brand-logo" style="font-size: 16pt;"><i class="material-icons white-text">invert_colors</i>HydrationStation</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="sass.html">About</a></li>
@@ -19,21 +19,27 @@
       </div>
     </nav>
 
-    <main class="no-padding">
-      <div class="section white">
-        <div class="container">
-          Test
+    <div class="section light-blue darken-1 no-pad-bot z-depth-1 start-splash-section">
+        <div class="container start-splash-container">
+          <div class="row">
+          <div class="col s12 l12">
+            <div class="white-text start-splash-header-content center">
+              <span class="start-splash-header-text white-text">Hydration App</span>
+              <h3 class="white-text start-header-paragraph-text" style="font-weight: 200">
+                Help track your caffeine, water, and alcohol in take personalized to your genetic data. 
+              <p></p>
+              <a href="{{ authorize_url }}" class="btn btn-default indigo darken-2"><i class="medium material-icons white-text" style="padding-bottom: 20px;margin-right: 20px;margin-bottom: 20px;">face</i>Connect with genome by clicking here</a>
+            </h3></div>
+          </div>
+          </div>
         </div>
       </div>
-    </main>
 
 
 
 
     <div class="container">
-      <div class="page-header">
-        <p class="lead">Press the button to get started</p>
-      </div>
+      
       {% with messages = get_flashed_messages() %}
         {% if messages %}
           {% for message in messages %}
@@ -46,7 +52,7 @@
       {% endwith %}
 
       {% if not reports %}
-        <a href="{{ authorize_url }}" class="btn btn-default">Connect with genome by clicking the button</a>
+        <p class="center"><Welcome click the button above to get started!</p>
       {% else %}
       <table class="table">
         <caption>Genome</caption>
@@ -68,10 +74,11 @@
       </table>
       <div id="wrapper">
       </div>
+      <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+      <script src="../static/drawCharts.js"></script>
       {% endif %}
 
     </div>
-    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <script src="../static/drawCharts.js"></script>
+    
   </body>
 </html>
