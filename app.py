@@ -1,4 +1,5 @@
 from flask import Flask, flash, render_template, request, redirect, session, url_for
+from secret_constants import secret_dictionary
 import genomelink
 
 def create_app():
@@ -21,7 +22,7 @@ def create_app():
 
   @app.route('/')
   def index():
-    authorize_url = genomelink.OAuth.authorize_url(scope=interested_scopes)
+    authorize_url = genomelink.OAuth.authorize_url(scope=interested_scopes, client_id=secret_dictionary['client_id'], callback_url=secret_dictionary['redirect_url'])
 
     # Fetching a protected resource using an OAuth2 token if exists.
     reports = []
@@ -38,7 +39,10 @@ def create_app():
     # callback URL. With this redirection comes an authorization code included
     # in the request URL. We will use that to obtain an access token.
     try:
-        token = genomelink.OAuth.token(request_url=request.url)
+        token = genomelink.OAuth.token(request_url=request.url, 
+        client_id=secret_dictionary['client_id'], 
+        client_secret=secret_dictionary['client_secret'], 
+        callback_url=secret_dictionary['redirect_url'])
     except genomelink.errors.GenomeLinkError as e:
         flash('Authorization failed.')
         if os.environ.get('DEBUG') == '1':
